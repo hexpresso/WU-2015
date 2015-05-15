@@ -22,7 +22,7 @@ I wrote this writeup because I have seen some guys doing this challenge by using
 That’s why I’ll try to give you a real explaination of « why xortool have worked »
 So, for this challenge, we were given a .tar.gz.
 
-```shell
+```{engine='bash'}
 $ ls
 GOL.tar.gz
 $ tar zxvf GOL.tar.gz

@@ -154,7 +154,7 @@ you lose
 ```
 
 ```shell
-$ python pouet.py key_fuck_gol__ file
+$ python jdlv.py key_fuck_gol__ file
 10000110
 11000000
 ...
@@ -169,8 +169,8 @@ $ python pouet.py key_fuck_gol__ file
 Ok, the key given in example is good. It stop the GOL early.
 
 ```shell
-$ python pouet.py key_fuck_gol__ file > enc
-$ python pouet.py $RANDOM enc
+$ python jdlv.py key_fuck_gol__ file > enc
+$ python jdlv.py $RANDOM enc
 ...
 you lose
 ```
@@ -180,7 +180,7 @@ HO YEAH. So, by giving a RANDOM key to the program and having a short GOL, we ar
 Let’s try with the given ciphertext :
 
 ```shell
-$ python pouet.py $RANDOM cipher.txt
+$ python jdlv.py $RANDOM cipher.txt
 ...
 A bientôt peut-être sur un toit ou dans une autre vie.
  
@@ -193,7 +193,7 @@ PWNED :)
 To go further, if RANDOM gave us a bad key which make lonk GOL :
 
 ```shell
-KEY=$RANDOM ; python pouet.py $KEY cipher.txt ; echo $KEY
+KEY=$RANDOM ; python jdlv.py $KEY cipher.txt ; echo $KEY
 Fmag!: UoBdAndTnLart
 12024
 ```

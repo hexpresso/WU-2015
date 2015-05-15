@@ -15,8 +15,8 @@
 
 I wrote this writeup because I have seen some guys doing this challenge by using XORTOOL, but without understanding …
 
-    mister X | python xortool.py cipher.txt; cat xortool_out/000.out
-    mister X | So hardcore
+> mister X | python xortool.py cipher.txt; cat xortool_out/000.out
+> mister X | So hardcore
 
 That’s why I’ll try to give you a real explaination of « why xortool have worked »
 So, for this challenge, we were given a .tar.gz.
@@ -35,20 +35,24 @@ Well, we had a setpoint, a cipher.txt and a python script.
 
 The setpoint learned us this :
 
+```sh
 $ cat consignes
 [ Game of life ]
 [+] The above text has been encoded using the game of life rules on a 8x8 array.
+```
 
 Seems legit, the given ciphertext has been encoded with the python script.
 
 Let’s have a quick look on the ciphertext :
 
+```
 11000100
 00010000
 01000111
 …
 }T]Q_YVTBDUUEECQSUDB:qEDTEB
 \_\RBUTETBPW_^:jX^U
+```
 
 Okay, a range of 8-grouped bits, one byte per line so.
 And after, this encrypted message.
@@ -83,12 +87,12 @@ def wrapper():
 ```
 
 Well, this function do :
-– initialize the variable « key » with the first argument
-– open the file given in the second argument
-– create a grid
-– for each line, generate a bitstream with the grid and the key
-– encrypt the line using XOR and the bitstream
-– print the encrypted file
+* initialize the variable « key » with the first argument
+* open the file given in the second argument
+* create a grid
+* for each line, generate a bitstream with the grid and the key
+* encrypt the line using XOR and the bitstream
+* print the encrypted file
 
 So, the main point is about the XOR encryption.
 Firstly, XOR is reversible and it’s not a good encryption even if the key has the same length of the plain. To clarify

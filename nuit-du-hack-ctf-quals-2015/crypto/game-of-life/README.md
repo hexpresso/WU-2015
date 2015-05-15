@@ -1,5 +1,5 @@
 # Nuit du Hack Quals CTF 2015: Game Of Life
-
+test
 **Category:** Crypto
 **Points:** 150
 **Solves:** 178

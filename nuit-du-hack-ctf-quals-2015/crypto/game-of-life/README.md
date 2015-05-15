@@ -21,7 +21,7 @@ I wrote this writeup because I have seen some guys doing this challenge by using
 That’s why I’ll try to give you a real explaination of « why xortool have worked »
 So, for this challenge, we were given a .tar.gz.
 
-```bash
+```sh
 $ ls
 GOL.tar.gz
 $ tar zxvf GOL.tar.gz
@@ -141,14 +141,14 @@ That’s to say, at the start, we must have the same key but after, noneed.
 
 Try to explain with an example by printing the bitstream :
 
-```bash
+```sh
 $ cat file
 you loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou
 ...
 you lose
 ```
 
-```bash
+```sh
 $ python pouet.py key_fuck_gol__ file
 10000110
 11000000
@@ -163,7 +163,7 @@ $ python pouet.py key_fuck_gol__ file
 
 Ok, the key given in example is good. It stop the GOL early.
 
-```bash
+```sh
 $ python pouet.py key_fuck_gol__ file > enc
 $ python pouet.py $RANDOM enc
 ...
@@ -174,7 +174,7 @@ HO YEAH. So, by giving a RANDOM key to the program and having a short GOL, we ar
 
 Let’s try with the given ciphertext :
 
-```bash
+```sh
 $ python pouet.py $RANDOM cipher.txt
 ...
 A bientôt peut-être sur un toit ou dans une autre vie.
@@ -187,7 +187,7 @@ PWNED :)
 
 To go further, if RANDOM gave us a bad key which make lonk GOL :
 
-```bash
+```sh
 KEY=$RANDOM ; python pouet.py $KEY cipher.txt ; echo $KEY
 Fmag!: UoBdAndTnLart
 12024

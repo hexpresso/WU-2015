@@ -16,12 +16,13 @@
 I wrote this writeup because I have seen some guys doing this challenge by using XORTOOL, but without understanding …
 
 > mister X | python xortool.py cipher.txt; cat xortool_out/000.out
+>
 > mister X | So hardcore
 
 That’s why I’ll try to give you a real explaination of « why xortool have worked »
 So, for this challenge, we were given a .tar.gz.
 
-```sh
+```shell
 $ ls
 GOL.tar.gz
 $ tar zxvf GOL.tar.gz
@@ -35,7 +36,7 @@ Well, we had a setpoint, a cipher.txt and a python script.
 
 The setpoint learned us this :
 
-```sh
+```shell
 $ cat consignes
 [ Game of life ]
 [+] The above text has been encoded using the game of life rules on a 8x8 array.
@@ -87,17 +88,17 @@ def wrapper():
 ```
 
 Well, this function do :
-* initialize the variable « key » with the first argument
-* open the file given in the second argument
-* create a grid
-* for each line, generate a bitstream with the grid and the key
-* encrypt the line using XOR and the bitstream
-* print the encrypted file
+1. initialize the variable « key » with the first argument
+- open the file given in the second argument
+- create a grid
+- for each line, generate a bitstream with the grid and the key
+- encrypt the line using XOR and the bitstream
+- print the encrypted file
 
 So, the main point is about the XOR encryption.
-Firstly, XOR is reversible and it’s not a good encryption even if the key has the same length of the plain. To clarify
+Firstly, XOR is reversible and it’s not a good encryption even if the key has the same length of the plain. 
 
-    (I had some echoes of people do not agree with my statements. To clarify the situation, and angry people who said that I need the review the basic [maybe true], XOR is NOT SECURE except in special circumstances, like OTP + size(key) >= size(plaintext). Without this, XOR is NOT SECURE, particularly when it used in a CTF hahaha (often repeated small key) … But, the discussion is open and I’m not mean, instead of thrashing me on IRC on channel where I’m not present … :p )
+> To claryfi : I had some echoes of people do not agree with my statements. To clarify the situation, and angry people who said that I need the review the basic [maybe true], XOR is NOT SECURE except in special circumstances, like OTP + size(key) >= size(plaintext). Without this, XOR is NOT SECURE, particularly when it used in a CTF hahaha (often repeated small key) … But, the discussion is open and I’m not mean, instead of thrashing me on IRC on channel where I’m not present … :p
 
 Secondly, the bitstream is init by the genBistream function, let’s have a look :
 
@@ -145,14 +146,14 @@ That’s to say, at the start, we must have the same key but after, noneed.
 
 Try to explain with an example by printing the bitstream :
 
-```sh
+```shell
 $ cat file
 you loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou
 ...
 you lose
 ```
 
-```sh
+```shell
 $ python pouet.py key_fuck_gol__ file
 10000110
 11000000
@@ -167,7 +168,7 @@ $ python pouet.py key_fuck_gol__ file
 
 Ok, the key given in example is good. It stop the GOL early.
 
-```sh
+```shell
 $ python pouet.py key_fuck_gol__ file > enc
 $ python pouet.py $RANDOM enc
 ...
@@ -178,7 +179,7 @@ HO YEAH. So, by giving a RANDOM key to the program and having a short GOL, we ar
 
 Let’s try with the given ciphertext :
 
-```sh
+```shell
 $ python pouet.py $RANDOM cipher.txt
 ...
 A bientôt peut-être sur un toit ou dans une autre vie.
@@ -191,7 +192,7 @@ PWNED :)
 
 To go further, if RANDOM gave us a bad key which make lonk GOL :
 
-```sh
+```shell
 KEY=$RANDOM ; python pouet.py $KEY cipher.txt ; echo $KEY
 Fmag!: UoBdAndTnLart
 12024

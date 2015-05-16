@@ -1,7 +1,7 @@
 # Nuit du Hack Quals CTF write-ups
 
 * [Website](http://quals.nuitduhack.com/)
-![Alt text](http://quals.nuitduhack.com/users)
+* [Scoreboard](http://quals.nuitduhack.com/users)
 * [Number of solves per task](solves.txt)
 
 ## Completed write-ups

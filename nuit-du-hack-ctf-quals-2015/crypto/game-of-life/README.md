@@ -11,6 +11,8 @@
 > 
 > [http://static.challs.nuitduhack.com/GOL.tar.gz](GOL.tar.gz)
 
+___
+
 ## Write-up
 
 I wrote this writeup because I have seen some guys doing this challenge by using XORTOOL, but without understanding …
@@ -32,6 +34,7 @@ liv_GOL/jdlv.py
 liv_GOL/cipher.txt
 ```
 
+
 Well, we had a setpoint, a cipher.txt and a python script.
 
 The setpoint learned us this :
@@ -41,6 +44,7 @@ $ cat consignes
 [ Game of life ]
 [+] The above text has been encoded using the game of life rules on a 8x8 array.
 ```
+
 
 Seems legit, the given ciphertext has been encoded with the python script.
 
@@ -54,6 +58,7 @@ Let’s have a quick look on the ciphertext :
 }T]Q_YVTBDUUEECQSUDB:qEDTEB
 \_\RBUTETBPW_^:jX^U
 ```
+
 
 Okay, a range of 8-grouped bits, one byte per line so.
 And after, this encrypted message.
@@ -87,6 +92,7 @@ def wrapper():
     print encfile
 ```
 
+
 Well, this function do :
 1. initialize the variable « key » with the first argument
 - open the file given in the second argument
@@ -100,6 +106,7 @@ Firstly, XOR is reversible and it’s not a good encryption even if the key has 
 
 > To claryfi : I had some echoes of people do not agree with my statements. To clarify the situation, and angry people who said that I need the review the basic [maybe true], XOR is NOT SECURE except in special circumstances, like OTP + size(key) >= size(plaintext). Without this, XOR is NOT SECURE, particularly when it used in a CTF hahaha (often repeated small key) … But, the discussion is open and I’m not mean, instead of thrashing me on IRC on channel where I’m not present … :p
 
+
 Secondly, the bitstream is init by the genBistream function, let’s have a look :
 
 ```python
@@ -111,6 +118,7 @@ def genBitstream(grille, key):
     return bitstream
 ```
 
+
 (Lol, the « key » is not used …)
 
 So, the plaintext is XORed by a bitstream, looks like (example) :
@@ -121,6 +129,7 @@ So, the plaintext is XORed by a bitstream, looks like (example) :
 ...
 nnnnnnnn ^ linen
 ```
+
 
 Here, we see that the challenge is fuckedup. Why ?
 Because, in the ciphertext, the bistream is given. So, we though to use the bistream to decrypt (not tried). But if you look closer, you can see that the bitstream (generate by the game of life) is spotted very early … The key used by the creator has completly break the challenge ..
@@ -142,6 +151,7 @@ The given bitstream was :
 00000000
 ```
 
+
 That’s to say, at the start, we must have the same key but after, noneed.
 
 Try to explain with an example by printing the bitstream :
@@ -152,6 +162,7 @@ you loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou loseyou lose
 ...
 you lose
 ```
+
 
 ```shell
 $ python jdlv.py key_fuck_gol__ file
@@ -166,6 +177,7 @@ $ python jdlv.py key_fuck_gol__ file
 00000000  <-- THE END
 ```
 
+
 Ok, the key given in example is good. It stop the GOL early.
 
 ```shell
@@ -174,6 +186,7 @@ $ python jdlv.py $RANDOM enc
 ...
 you lose
 ```
+
 
 HO YEAH. So, by giving a RANDOM key to the program and having a short GOL, we are able to decrypt.
 
@@ -187,6 +200,7 @@ A bientôt peut-être sur un toit ou dans une autre vie.
 Flag : ToBeAndToLast
 ```
 
+
 PWNED :)
 
 
@@ -197,6 +211,7 @@ KEY=$RANDOM ; python jdlv.py $KEY cipher.txt ; echo $KEY
 Fmag!: UoBdAndTnLart
 12024
 ```
+
 
 So, 12024 do not decrypt the ciphertext properly.
 For fun, we check his GOL :
@@ -211,6 +226,7 @@ For fun, we check his GOL :
 11010100
 00101110 <-- END
 ```
+
 
 Indeed, the key generate the GOL which is long enough.
 

@@ -1,11 +1,5 @@
 # HackingWeek CTF 2015: Forensic 4
 
-<style type="text/css">
-    code {
-        color: red;
-    }
-</style>
-
 **Category:** forensic |
 **Points:** 5160 |
 **Solves:** 27 |

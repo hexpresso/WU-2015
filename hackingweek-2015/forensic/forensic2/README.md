@@ -1,11 +1,5 @@
 # HackingWeek CTF 2015: Forensic 2
 
-<style type="text/css">
-    code {
-        color: red;
-    }
-</style>
-
 **Category:** forensic |
 **Points:** 3440 |
 **Solves:** 48 |

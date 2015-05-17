@@ -10,7 +10,7 @@
 > <br>
 > Pour obtenir la clef de validation de cette épreuve est donnée par le PID, le PPID et le nombre de threads du programme <code>Solitaire</code>. Mettez-le au format suivant <code>PID:PPID:nThreads</code>.
 > 
-> * <span style="color:red">`dump.gz`</span> (md5sum:1273931ce359f59bce95ce4507e1f4bf)
+> * `dump.gz` (md5sum:1273931ce359f59bce95ce4507e1f4bf)
 
 
 ___

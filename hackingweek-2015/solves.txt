@@ -1,31 +1,31 @@
 + crypto
-    - crypto1 : 24
+    - crypto1 : 26
     - crypto2 : 19
-    - crypto3 : 5
-    - crypto4 : 11
+    - crypto3 : 7
+    - crypto4 : 12
 
 + exploit
-    - exploit1 : 77
-    - exploit2 : 42
-    - exploit3 : 45
-    - exploit4 : 31
-    - exploit5 : 16
-    - exploit6 : 2
+    - exploit1 : 76
+    - exploit2 : 43
+    - exploit3 : 46
+    - exploit4 : 33
+    - exploit5 : 20
+    - exploit6 : 3
 
 + forensic
-    - forensic1 : 58
-    - forensic2 : 48
-    - forensic3 : 37
-    - forensic4 : 27
+    - forensic1 : 57
+    - forensic2 : 50
+    - forensic3 : 38
+    - forensic4 : 26
 
 + net
-    - net1 : 74
-    - net2 : 67
-    - net3 : 43
+    - net1 : 75
+    - net2 : 66
+    - net3 : 45
     - net4 : 33
 
 + reverse
-    - reverse1 : 60
-    - reverse2 : 34
+    - reverse1 : 61
+    - reverse2 : 37
     - reverse3 : 22
-    - reverse4 : 11
+    - reverse4 : 12

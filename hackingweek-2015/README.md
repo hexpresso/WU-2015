@@ -9,18 +9,15 @@
 * [crypto/crypto1](crypto/crypto1)
 * [crypto/crypto2](crypto/crypto2)
 * [crypto/crypto4](crypto/crypto4)
-
 * [forensic/forensic1](forensic/forensic1)
 * [forensic/forensic2](forensic/forensic2)
 * [forensic/forensic3](forensic/forensic3)
-
 * [net/net2](net/net2)
 * [net/net3](net/net3)
 * [net/net4](net/net4)
-
 * [reverse/reverse1](reverse/reverse1)
 
-    
+     
 ## In-writing write-ups
 
 * [exploit/exploit1](exploit/exploit1)

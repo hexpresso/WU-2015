@@ -17,4 +17,18 @@ ___
 
 ## Write-up
 
-TODO
+This task was quite simple :<br>
+```bash
+vol -f /root/Téléchargements/hackweek/dump --profile=Win7SP1x86 pslist | grep Solitaire | awk '{printf("%d:%d:%d\n",$3,$4,$5)}'
+```
+<br>
+_Output_: 
+```
+Volatility Foundation Volatility Framework 2.3.1
+2992:1312:8
+```
+
+__Flag__: `2992:1312:8`
+<br>
+Enjoy,<br>
+\- [Rawger](https://twitter.com/_rawger)

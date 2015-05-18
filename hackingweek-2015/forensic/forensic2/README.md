@@ -17,3 +17,22 @@ ___
 
 ## Write-up
 
+This task was also quite easy, here is my oneliner :<br>
+```bash
+strings dump | grep "actu"
+ 
+; String0 = CPUManufacturer ,  Numeric0 = Unused.
+; Sometimes the BIOS does not report the memory it is actually using.
+; String Args: (CPUManufacturer, Op, Op, Op)
+; String Args: (CPUManufacturer, CPUFamilyOp, CPUModelOp, CPUSteppingOp,
+; String Args: (CPUManufacturer, Op, Op, Op)
+Previous packet was actually BOOTP!
+A       https://fr.cinema.yahoo.com/actualite/crash-avion-harrison-ford-blesse-070221[...]
+ 
+HarrisonFord
+```
+<br>
+__Flag__: `HarrisonFord`
+<br>
+Enjoy,<br>
+\- [Rawger](https://twitter.com/_rawger) 

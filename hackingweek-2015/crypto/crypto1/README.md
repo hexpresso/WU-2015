@@ -1,12 +1,5 @@
 # HackingWeek CTF 2015: Crypto 1
 
-<style type="text/css">
-    code {
-        color: red;
-    }
-</style>
-
-
 **Category:** Crypto |
 **Points:** 5418 |
 **Solves:** 24 |
